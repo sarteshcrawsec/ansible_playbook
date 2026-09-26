@@ -1,0 +1,8 @@
+- name: Manage timesync on all managed host
+  hosts: all
+  vars:
+    selinux_policy: targeted
+    selinux_state: enforcing
+  roles:
+    - redhat.rhel_system_roles.selinux
+        
