@@ -1,0 +1,29 @@
+---
+- name: Create a DNF repo 
+  hosts: all
+  tasks:
+    - name: Create a baseos repos
+      ansible.builtin.yum_repository:
+        name: EX294_BASE
+        description: EX294 Base Software
+        file: au294
+        baseurl: http://content.example.com/dvd/BaseOS
+        enabled: true
+        gpgcheck: true
+        gpgkey: http://content.example.com/dvd/RPM-GPG-KEY-redhat-release
+        state: present 
+
+    - name: Create a appstream repos
+      ansible.builtin.yum_repository:
+        name: EX294_STREAM
+        description: EX294 Stream Software
+        file: au294
+        baseurl: http://content.example.com/dvd/AppStream
+        enabled: true
+        gpgcheck: true
+        gpgkey: http://content.example.com/dvd/RPM-GPG-KEY-redhat-release
+        state: present 
+
+
+
+
