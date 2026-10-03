@@ -1,0 +1,9 @@
+---
+- name: Use apache custom role 
+  hosts: webservers
+  roles:
+    - apache
+  post_tasks:
+    - command: firewall-cmd --permanent --add-service=http
+    - command: firewall-cmd --reload
+
